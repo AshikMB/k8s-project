@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-project
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-project
+  template:
+    metadata:
+      labels:
+        app: k8s-project
+    spec:
+      containers:
+      - name: k8s-project
+        image: ashikmb/k8s-project:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "200m"
+            memory: "128Mi"
