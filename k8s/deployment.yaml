@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: k8s-project
-        image: ashikmb/k8s-project:latest
+        image: ashikmb/k8s-project
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
