@@ -26,3 +26,13 @@ steps:
     tags: latest
     addPipelineData: false
     addBaseImageData: false
+- task: KubernetesManifest@1
+  displayName: Deploying on GKE K8s
+  inputs:
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'k8s-project'
+    namespace: 'default'
+    manifests: |
+      k8s/deployment.yaml
+      k8s/service.yaml
